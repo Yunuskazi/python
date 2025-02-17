@@ -18,8 +18,8 @@ def count_file_contents(filename):
     with open(filename, "r") as file:
         for line in file:
             f_line += 1
-            f_char += 1
-            f_word += 1
+            f_word += len(f_line.split())
+            f_char += len(f_line)
 
     print(f"number of line: {f_line}")
     print(f"number of character: {f_char}")
