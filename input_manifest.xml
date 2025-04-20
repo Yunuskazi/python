@@ -1,18 +1,10 @@
 <manifest>
-  <project path="Android" name="platform/frameworks/base" groups="android-kernel">
-    <linkfile src="README.md" dest="README.md"/>
-  </project>
-
-  <project path="tools" name="platform/tools/base" groups="android-vm">
-    <linkfile src="tools/README.md" dest="README.md"/>
-  </project>
-
-  <project path="hardware" name="platform/hardware/interfaces" groups="hardware"/>
-  
-  <project path="Android" name="platform/system/core" groups="android">
-    <linkfile src="core/notes.txt" dest="notes.txt"/>
-    <linkfile src="core/config.xml" dest="config.xml"/>
-  </project>
-
-  <project path="docs" name="platform/docs/source" groups="documentation"/>
+    <project name="android-kernel" path="kernel/android" revision="refs/tags/android-11.0.0_r1" groups="andro
+    <linkfile src="kernel/CleanSpec.mk" dest="build/CleanSpec.mk"/>
+    <linkfile src="kernel/buildspec.mk.default" dest="build/buildspec.mk.default"/>
+    <linkfile src="kernel/core" dest="build/core"/>
+    <project name="platform/android-framework" path="frameworks/base" revision="refs/tags/android-11.0.0_r1"
+    <linkfile src="frameworks/CleanSpec.mk" dest "build/CleanSpec.mk"/>
+    <linkfile src="frameworks/buildspec.mk.default" dest="build/buildspec.mk.default"/>
+    <linkfile src="frameworks/core" dest="build/core"/>
 </manifest>

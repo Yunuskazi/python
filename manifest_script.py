@@ -7,24 +7,24 @@ if len(sys.argv) != 3:
 input_filename = sys.argv[1]
 output_filename = sys.argv[2]
 
-# You can add/edit keywords here — case-insensitive match
-keywords = ['path="Android"', 'path="tools"']
+# Add all relevant keywords (case-insensitive match)
+keywords = ['path="kernel/android"']
 
 with open(input_filename, "r") as input_file, open(output_filename, "w") as output_file:
+    output_file.write("<manifest>\n")
     include_line = False
 
     for line in input_file:
-        if any(keyword.lower() in line.lower() for keyword in keywords) or "<manifest>" in line or "</manifest>" in line:
+        # Check if line starts a project we care about
+        if "<project" in line and any(keyword.lower() in line.lower() for keyword in keywords):
             include_line = True
             output_file.write(line)
 
-        elif include_line and (line.startswith(" ") or "</project>" in line):
+        elif include_line:
             output_file.write(line)
-
-            if "</project>" in line:
+            if "</project>" in line or "<project" in line:  # Reset if new project starts or ends
                 include_line = False
 
-        else:
-            include_line = False
+    output_file.write("</manifest>\n")
 
-print(f"Lines with keywords copied to {output_filename}")
+print(f"Filtered manifest written to {output_filename}")
