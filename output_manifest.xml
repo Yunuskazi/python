@@ -1,0 +1,12 @@
+<manifest>
+  <project path="Android" name="platform/frameworks/base" groups="android-kernel">
+    <linkfile src="README.md" dest="README.md"/>
+  </project>
+  <project path="tools" name="platform/tools/base" groups="android-vm">
+    <linkfile src="tools/README.md" dest="README.md"/>
+  </project>
+  <project path="Android" name="platform/system/core" groups="android">
+    <linkfile src="core/notes.txt" dest="notes.txt"/>
+    <linkfile src="core/config.xml" dest="config.xml"/>
+  </project>
+</manifest>
