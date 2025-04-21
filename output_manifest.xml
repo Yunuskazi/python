@@ -1,7 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-    <project name="android-kernel" path="kernel/android" revision="refs/tags/android-11.0.0_r1" groups="andro
-    <linkfile src="kernel/CleanSpec.mk" dest="build/CleanSpec.mk"/>
-    <linkfile src="kernel/buildspec.mk.default" dest="build/buildspec.mk.default"/>
-    <linkfile src="kernel/core" dest="build/core"/>
-    <project name="platform/android-framework" path="frameworks/base" revision="refs/tags/android-11.0.0_r1"
+  <project path="build/make" name="platform/build" groups="pdk, sysui-studio">
+    <linkfile src="CleanSpec.mk" dest="build/CleanSpec.mk" />
+    <linkfile src="buildspec.mk.default" dest="build/buildspec.mk.default" />
+    <linkfile src="core" dest="build/core" />
+    <linkfile src="envsetup.sh" dest="build/envsetup.sh" />
+    <linkfile src="target" dest="build/target" />
+    <linkfile src="tools" dest="build/tools" />
+  </project>
+  <project path="build/bazel_common_rules" name="platform/build/bazel_common_rules" groups="pdk" />
 </manifest>
